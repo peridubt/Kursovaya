@@ -184,7 +184,7 @@ void PrintToConsole(char* filename, std::ifstream& file_in, Array &mass)
 void PrintToTxt(char* filename, char* file_out_name, std::ifstream& file_in, std::ofstream& file_out, Array &mass)
 {
     file_in.open(filename, std::ios::binary | std::ios::in);
-    if (mass.get_size()!=0)
+    if (mass.get_fact_size()!=0)
     {
         std::cout << "Придумайте название файла для вывода в txt:\n->\t";
         std::cin >> file_out_name;
@@ -226,7 +226,7 @@ int main()
     char filename[100], file_out_name[100];
     bool flag_menu1 = true;
     bool edits = false;
-    Array mass(0);
+    Array mass(10);
     std::ofstream current_file;
 
 
