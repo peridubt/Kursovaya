@@ -355,6 +355,7 @@ int main()
             }
             if (menu2 != 0)
             {
+                std::cin.ignore(std::cin.rdbuf()->in_avail());
                 menu2_pop_up();
                 std::cout << "\nВыберите опцию из меню:\n->\t";
                 std::getline(std::cin, input, '\n');
