@@ -7,7 +7,9 @@ struct Array
 {
 private:
     ptrPhnbk* arr;
-    int size;
+    size_t real_size;
+    size_t fact_size;
+    
 public:
     Array() {};
     Array(size_t arr_size);
@@ -16,7 +18,7 @@ public:
     void clear_tmp();
     void print();
     void sorting();
-    void arr_copy(ptrPhnbk* mas, int size_arr);
+    void arr_copy(ptrPhnbk* mas, size_t size_arr);
     void add_note();
     void edit_note();
     void delete_note();
@@ -28,8 +30,12 @@ public:
     {
         return arr;
     }
-    int get_size()
+    size_t get_real_size()
     {
-        return size;
+        return real_size;
+    }
+    size_t get_fact_size()
+    {
+        return fact_size;
     }
 };
