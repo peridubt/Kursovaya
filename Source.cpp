@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 
+// Вспомогательные функции
 void menu1_pop_up()
 {
     std::cout << "1. Создать новый файл.\n" <<
@@ -210,6 +211,8 @@ void PrintToTxt(char* filename, char* file_out_name, std::ifstream& file_in, std
         std::cout << "Записей нет, так как файл пустой.\nДобавьте запись и повторите попытку.\n\n";
     file_in.close();
 }
+
+// -----------
 int main()
 {
     SetConsoleCP(1251);
@@ -223,7 +226,7 @@ int main()
 
     std::ifstream existing_file, file_in;
     std::ofstream new_file, file_out;
-    char filename[100], file_out_name[100];
+    char filename[255], file_out_name[255];
     bool flag_menu1 = true;
     bool edits = false;
     Array mass(10);
@@ -315,7 +318,6 @@ int main()
                 std::cout << "Открыт файл \"" << filename << "\".\n";
                 mass.add_note();
                 edits = true;
-                //++arr_size;
                 break;
             case 4:
                 std::cout << "Открыт файл \"" << filename << "\".\n";
@@ -355,8 +357,8 @@ int main()
             }
             if (menu2 != 0)
             {
-                std::cin.ignore(std::cin.rdbuf()->in_avail());
                 menu2_pop_up();
+                std::cin.ignore(std::cin.rdbuf()->in_avail());
                 std::cout << "\nВыберите опцию из меню:\n->\t";
                 std::getline(std::cin, input, '\n');
                 while (!StrToInt(menu2, input))
